@@ -1,0 +1,60 @@
+<ScrollView
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:padding="16dp">
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="vertical"
+        android:gravity="center"
+        android:padding="8dp">
+
+        <TextView
+            android:id="@+id/txtTitulo"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Resultados del juego"
+            android:textSize="24sp"
+            android:textStyle="bold"
+            android:layout_marginBottom="16dp" />
+
+        <ImageView
+            android:id="@+id/imgPodio"
+            android:layout_width="wrap_content"
+            android:layout_height="200dp"
+            android:src="@drawable/podio"
+            android:layout_gravity="center"
+            android:contentDescription="Podio" />
+
+        <TextView
+            android:id="@+id/txtPodio"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:textSize="18sp"
+            android:layout_marginTop="16dp"
+            android:layout_marginBottom="16dp" />
+
+        <LinearLayout
+            android:id="@+id/containerListaJugadores"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical"
+            android:padding="8dp" />
+
+        <Button
+            android:id="@+id/btnVolverAJugar"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="Volver a jugar"
+            android:layout_marginTop="16dp" />
+
+        <Button
+            android:id="@+id/btnSalirResultados"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="Volver al menú principal"
+            android:layout_marginTop="8dp" />
+    </LinearLayout>
+</ScrollView>
