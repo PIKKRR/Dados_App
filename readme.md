@@ -44,8 +44,8 @@ _- Bug Corregido (Al editar, agregar o borrar a un usuario, se reseteaban las pu
 
 _Menciona las herramientas que utilizaste para crear tu proyecto_
 
-* [Android Studio](http://www.dropwizard.io/1.0.2/docs/) - IDE Utilizado
-* [JAVA](https://rometools.github.io/rome/) - Lenguaje de programación usado.
+* [Android Studio](https://developer.android.com/) - IDE Utilizado
+* [JAVA](https://www.java.com/es/download/ie_manual.jsp) - Lenguaje de programación usado.
 
 ## Autores ✒️
 
