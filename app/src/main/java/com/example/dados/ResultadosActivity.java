@@ -1,15 +1,15 @@
 package com.example.dados;
 
 import android.content.Intent;
+import android.content.SharedPreferences;
 import android.os.Bundle;
+import android.util.Log;
 import android.widget.Button;
 import android.widget.LinearLayout;
 import android.widget.TextView;
 import androidx.appcompat.app.AppCompatActivity;
 
 import java.util.ArrayList;
-import java.util.Collections;
-import java.util.Comparator;
 
 public class ResultadosActivity extends AppCompatActivity {
     @Override
@@ -22,49 +22,95 @@ public class ResultadosActivity extends AppCompatActivity {
         Button btnVolverAJugar = findViewById(R.id.btnVolverAJugar);
         Button btnSalirResultados = findViewById(R.id.btnSalirResultados);
 
-        // Obtener resultados desde el Intent.
+        // Obtener resultados y lista de jugadores desde el Intent
         Intent intent = getIntent();
         ArrayList<String> resultados = intent.getStringArrayListExtra("resultados");
+        ArrayList<String> jugadores = intent.getStringArrayListExtra("jugadores");
 
         if (resultados != null && !resultados.isEmpty()) {
-            // Ordenar resultados por puntuación.
-            Collections.sort(resultados, new Comparator<String>() {
-                @Override
-                public int compare(String r1, String r2) {
+            // Ordenar resultados por puntuación
+            resultados.sort((r1, r2) -> {
+                try {
                     int puntos1 = Integer.parseInt(r1.split(": ")[1].split(" ")[0]);
                     int puntos2 = Integer.parseInt(r2.split(": ")[1].split(" ")[0]);
-                    return puntos2 - puntos1; // Orden descendente.
+                    return puntos2 - puntos1;
+                } catch (Exception e) {
+                    Log.e("ResultadosActivity", "Error al ordenar resultados: " + e.getMessage());
+                    return 0;
                 }
             });
 
-            // Mostrar los tres primeros en el podio.
+            // Guardar los resultados en SharedPreferences
+            guardarResultadosEnSharedPreferences(resultados);
+
+            // Mostrar el podio
             StringBuilder podio = new StringBuilder();
-            for (int i = 0; i < Math.min(3, resultados.size()); i++) {
+            for (int i = 0; i < resultados.size(); i++) {
                 podio.append(i + 1).append(". ").append(resultados.get(i)).append("\n");
             }
             txtPodio.setText(podio.toString());
-
-            // Mostrar el resto de jugadores en una lista.
-            for (int i = 3; i < resultados.size(); i++) {
-                TextView jugador = new TextView(this);
-                jugador.setText(resultados.get(i));
-                jugador.setTextSize(16f);
-                containerListaJugadores.addView(jugador);
-            }
         }
 
-        // Botón para volver a jugar.
+        // Botón para volver a jugar
         btnVolverAJugar.setOnClickListener(view -> {
-            Intent volverIntent = new Intent(ResultadosActivity.this, JuegoActivity.class);
-            startActivity(volverIntent);
-            finish();
+            if (resultados != null && jugadores != null && !resultados.isEmpty()) {
+                // Obtener el ganador (primer jugador en "resultados")
+                String ganador = resultados.get(0).split(": ")[0];
+
+                // Reorganizar la lista de jugadores en sentido contrario a las agujas del reloj
+                ArrayList<String> nuevaListaJugadores = reorganizarJugadores(jugadores, ganador);
+
+                // Enviar la nueva lista a JuegoActivity
+                Intent volverIntent = new Intent(ResultadosActivity.this, JuegoActivity.class);
+                volverIntent.putStringArrayListExtra("jugadoresSeleccionados", nuevaListaJugadores);
+                startActivity(volverIntent);
+                finish();
+            }
         });
 
-        // Botón para salir.
+        // Botón para salir
         btnSalirResultados.setOnClickListener(view -> {
             Intent volverIntent = new Intent(ResultadosActivity.this, MainActivity.class);
             startActivity(volverIntent);
             finish();
         });
+    }
+
+    private void guardarResultadosEnSharedPreferences(ArrayList<String> resultados) {
+        SharedPreferences sharedPreferences = getSharedPreferences("puntajes", MODE_PRIVATE);
+        SharedPreferences.Editor editor = sharedPreferences.edit();
+
+        for (String resultado : resultados) {
+            String[] partes = resultado.split(": ");
+            String nombreJugador = partes[0];
+            int puntajeActual = Integer.parseInt(partes[1].split(" ")[0]);
+
+            // Obtener puntaje existente
+            int puntajeGuardado = sharedPreferences.getInt(nombreJugador, 0);
+
+            // Actualizar si el nuevo puntaje es mayor
+            if (puntajeActual > puntajeGuardado) {
+                editor.putInt(nombreJugador, puntajeActual);
+            }
+        }
+
+        editor.apply();
+    }
+
+    private ArrayList<String> reorganizarJugadores(ArrayList<String> jugadores, String ganador) {
+        ArrayList<String> nuevaLista = new ArrayList<>();
+        int indexGanador = jugadores.indexOf(ganador);
+
+        if (indexGanador != -1) {
+            // Añadir jugadores desde el ganador hasta el final de la lista
+            nuevaLista.addAll(jugadores.subList(indexGanador, jugadores.size()));
+
+            // Añadir jugadores desde el principio hasta el ganador
+            nuevaLista.addAll(jugadores.subList(0, indexGanador));
+        } else {
+            Log.e("ResultadosActivity", "El ganador no se encuentra en la lista de jugadores.");
+        }
+
+        return nuevaLista;
     }
 }

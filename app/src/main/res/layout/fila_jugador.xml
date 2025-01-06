@@ -1,0 +1,46 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:orientation="horizontal"
+    android:padding="10dp"
+    android:gravity="center_vertical">
+
+    <!-- Nombre del jugador -->
+    <TextView
+        android:id="@+id/textNombre"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_weight="1"
+        android:text="Nombre del Jugador"
+        android:textSize="18sp"
+        android:textColor="@android:color/black" />
+
+    <!-- Puntaje del jugador -->
+    <TextView
+        android:id="@+id/textPuntaje"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Puntaje"
+        android:textSize="16sp"
+        android:textColor="@android:color/black" />
+
+    <!-- Ícono de editar -->
+    <ImageView
+        android:id="@+id/iconEditar"
+        android:layout_width="24dp"
+        android:layout_height="24dp"
+        android:src="@android:drawable/ic_menu_edit"
+        android:contentDescription="Editar Jugador"
+        android:layout_marginStart="10dp" />
+
+    <!-- Ícono de eliminar -->
+    <ImageView
+        android:id="@+id/iconEliminar"
+        android:layout_width="24dp"
+        android:layout_height="24dp"
+        android:src="@android:drawable/ic_menu_delete"
+        android:contentDescription="Eliminar Jugador"
+        android:layout_marginStart="10dp" />
+
+</LinearLayout>

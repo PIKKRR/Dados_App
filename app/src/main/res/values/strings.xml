@@ -1,4 +1,18 @@
 <resources>
     <string name="app_name">dados</string>
     <string name="dados"/>
+    <string name="nuevo_jugador">Nuevo Jugador</string>
+    <string name="jugador">Jugador:</string>
+    <string name="m_x_puntuaci_n">Máx. Puntuación:</string>
+    <string name="jugar">Jugar</string>
+    <string name="top_15">TOP 15</string>
+    <string name="salir">Salir</string>
+    <string name="guardar">Guardar</string>
+    <string name="lista_de_jugadores">Lista de Jugadores</string>
+    <string name="resultados_del_juego">Resultados del juego</string>
+    <string name="podio">Podio</string>
+    <string name="volver_a_jugar">Volver a jugar</string>
+    <string name="men_principal">Menú principal</string>
+    <string name="n_mero_de_jugadores">Número de jugadores:</string>
+    <string name="guardar_y_empezar">Guardar y Empezar</string>
 </resources>

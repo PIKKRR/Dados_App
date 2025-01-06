@@ -9,7 +9,22 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:orientation="vertical"
+        android:gravity="center"
         android:id="@+id/containerJugadores">
+
+        <ImageView
+            android:id="@+id/bannerJuego"
+            android:layout_width="wrap_content"
+            android:layout_height="200dp"
+            android:src="@drawable/bannerdados"
+            android:contentDescription="@string/dados" />
+
+        <ImageView
+            android:id="@+id/imageJuego"
+            android:layout_width="200dp"
+            android:layout_height="200dp"
+            android:src="@drawable/ic_dados"
+            android:contentDescription="@string/dados" />
 
         <!-- El botón para terminar el juego al final -->
         <Button
@@ -17,7 +32,12 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:text="Terminar Juego"
-            android:layout_marginTop="16dp"
-            tools:ignore="HardcodedText,VisualLintButtonSize" />
+            tools:ignore="HardcodedText,VisualLintButtonSize"
+            android:layout_marginTop="30dp"
+            android:background="@drawable/rounded_button"
+            android:textColor="#000000"
+            android:textSize="16sp"
+            android:padding="12dp"
+            android:layout_gravity="center" />
     </LinearLayout>
 </ScrollView>
