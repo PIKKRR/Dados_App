@@ -29,9 +29,9 @@ _- Actualización (actualizados botones para darles una mejor apariencia)._
 
 _- Optimización (Ahora la app responde más rápido)._
 
-_- Añadido (orden de juego en el sentido contrario a las agujas del reloj: En la primera partida se establece un orden de tiradas. Cuando un jugador resulta ganador,
+_- Añadido (orden de juego en el sentido contrario a las agujas del reloj: En la primera partida se establece un orden de tiradas. Cuando un jugador resulta ganador,_
 
-y se pulsa "volver a jugar" porque se va a seguir jugando con los mismos jugadores, se respeta el turno de todos pero esta vez empezando por el jugador que ha ganado la ronda anterior._
+_y se pulsa "volver a jugar" porque se va a seguir jugando con los mismos jugadores, se respeta el turno de todos pero esta vez empezando por el jugador que ha ganado la ronda anterior._
 
 ### Release 2.8 *********************************************************************************************
 
