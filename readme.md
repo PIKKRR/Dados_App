@@ -54,7 +54,7 @@ _Menciona las herramientas que utilizaste para crear tu proyecto_
 ## Expresiones de Gratitud 🎁
 
 * Comenta a otros sobre este proyecto 📢
-* Invita una cerveza 🍺 o un café ☕. 
+* Invita a un café ☕. 
 * Da las gracias públicamente 🤓.
 
 ---
