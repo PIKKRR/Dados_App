@@ -12,6 +12,7 @@ _- Bug Corregido (Al editar, agregar o borrar a un usuario, se reseteaban las pu
 ### Release 2.8 *********************************************************************************************
 
 _- Bug Corregido (Al crear un nuevo jugador y volver atrás, no se actualizaba la lista de jugadores en el spinner de selección)._
+
 _- Añadido (No se puede ir hacia atrás por error durante el juego, para salir se ha de terminar la partida primero)._
 
 ### Release 2.7 *********************************************************************************************
