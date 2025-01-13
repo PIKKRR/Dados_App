@@ -3,6 +3,8 @@
 _App para Android para jugar al famoso juego de los Dados de Póker en reuniones familiares/amigos. Se apuntan los resultados
 y la APP realiza los cálculos para las puntuaciones creando un ranking Top15._
 
+_NOTA: LA APP ES SÓLO UN COMPLEMENTO PARA EL JUEGO FÍSICO, AHORRANDO TIEMPO A LA HORA DE CALCULAR RESULTADOS Y CREANDO UN RANKING (TOP15) ENTRE AMIGOS Y FAMILIARES._
+
 ## Changelog ⚙️
 
 ### Release 2.9 *********************************************************************************************
